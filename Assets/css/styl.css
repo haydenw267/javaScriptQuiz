@@ -1,3 +1,4 @@
+
 @font-face {
     font-family: montserrat;
     src: url(../fonts/Montserrat/Montserrat-VariableFont_wght.ttf)
@@ -7,41 +8,63 @@
     src: url(../fonts/Martel/Martel-SemiBold.ttf);
 }
 
-body{
-    background-color: darkgrey;
-}
-
-#strtHead {
+*, *::before, *::after{
+    box-sizing: border-box;
     font-family: montserrat;
-    text-align: center;
-    font-size: 50px;
-    margin: auto;
-    width: 50%;
-    border: 3px;
-    padding: 10px;
-    background-color: #272635;
-    border-radius: 25px;
 }
 
-#strtBttn{
-    font-family: martel;
-    text-align: center;
-    font-size: 100px;
-    margin: auto;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    -ms-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
-    padding: 10px;
-    border: 3px;
-    list-style: none;
-    background-color: #508ca4;
-    border-radius: 25px;
+body{
+    padding:0;
+    margin: 0;
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(65, 65, 65);
 }
 
-#strtBttn :hover {
-    cursor: pointer;
-    background-color: #70B77E;
-    border-radius: 25px;
+.container {
+    width: 800px;
+    max-width: 80%;
+    background-color: white;
+    border-radius: 5px;
+    padding: 10px;
+    box-shadow: 0 0 10px 2px;
+}
+
+.buttonGrid{
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    gap: 10px;
+    margin: 20px 0;
+}
+
+.button{
+    border: 1px solid mediumaquamarine;
+    background-color: cornflowerblue;
+    border-radius: 5px;
+    padding: 5px 10px;
+    color: black;
+    outline: none;
+}
+
+.button:hover{
+    border-color: black;
+}
+
+.startButton, .nextButton{
+    font-size: 1.5rem;
+    font-weight: bold;
+    padding: 10px 20px;
+}
+
+.controls{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hide{
+    display: none;
 }
