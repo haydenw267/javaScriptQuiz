@@ -1,8 +1,10 @@
+
+//these are all the constants I made to target elements of the HTML
 const answerButton1 = document.getElementById('button1')
 const answerButton2 = document.getElementById('button2')
 const answerButton3 = document.getElementById('button3')
 const answerButton4 = document.getElementById('button4')
-
+const finalScore = document.getElementById('finalScore')
 const startButton = document.getElementById('startButton')
 const questionContainerELement = document.getElementById('questionContainer')
 const nextButton = document.getElementById('nextButton')
@@ -11,7 +13,9 @@ let shuffledQuestions, currentQuestionIndex
 
 const questionElement = document.getElementById('question')
 const answerButtonsElement = document.getElementById('answerButtons')
+const clockElement = document.getElementById('clock')
 
+//these are the event listeners
 startButton.addEventListener('click', startGame)
 nextButton.addEventListener('click', setNextQuestion)
 answerButton1.addEventListener('click', selectAnswer0)
@@ -19,24 +23,62 @@ answerButton2.addEventListener('click', selectAnswer1)
 answerButton3.addEventListener('click', selectAnswer2)
 answerButton4.addEventListener('click', selectAnswer3)
 
+//universal variables
 let correctAnswers = 0
+let timeLeft = 120
+let gameStart = 0
+let gameEndState = 0
 
 function startGame(){
     startButton.classList.add('hide');
-    shuffledQuestions = questions.sort(() => Math.random() - .5)
-    currentQuestionIndex = 0
-    questionContainerELement.classList.remove('hide')
+    clockElement.classList.remove('hide');
+    clockElement.innerText = timeLeft
+    shuffledQuestions = questions.sort(() => Math.random() - .5);
+    currentQuestionIndex = 0;
+    questionContainerELement.classList.remove('hide');
     setNextQuestion();
-    nextButton.classList.remove('hide')
+    nextButton.classList.remove('hide');
+    gameStart = 1;
     
 }
 
-function setNextQuestion(){
-    showQuestion(shuffledQuestions[currentQuestionIndex]);
-    showAnswer(shuffledQuestions[currentQuestionIndex]);
-    console.log('THE CURRENT QUESTION IS ' + currentQuestionIndex);
-    currentQuestionIndex++;
+function gameEnd(){
+    gameEndState = 1
+    questionElement.classList.add('hide');
+    answerButtonsElement.classList.add('hide');
+    nextButton.classList.add('hide');
+    clockElement.classList.add('hide');
+    clockElement.classList.remove('clock');
+    finalScore.innerText = correctAnswers + '/10';
+    finalScore.classList.remove('hide');    
 }
+
+//tickDown is the function the setInterval method uses to start the timer
+
+function tickDown(){
+    if(gameStart == 1 && timeLeft > 0){
+    timeLeft--
+    console.log('THERE IS ' + timeLeft + 'SECONDS LEFT!')
+    clockElement.innerText = timeLeft
+    }else if(gameEndState != 1 && gameStart == 1){
+       gameEnd();
+    }
+}
+
+//setNextQuestion checks the current question index and shows the question and answers for that question
+
+function setNextQuestion(){
+    if(currentQuestionIndex < 10){
+        showQuestion(shuffledQuestions[currentQuestionIndex]);
+        showAnswer(shuffledQuestions[currentQuestionIndex]);
+        console.log('THE CURRENT QUESTION IS ' + currentQuestionIndex);
+        currentQuestionIndex++;
+    }else{
+        gameEnd();
+    }
+}
+
+//showQuestion and showAnswer populate the question and answer boxes
 
 function showQuestion(question) {
     questionElement.innerText = question.question
@@ -49,6 +91,8 @@ function showAnswer(question) {
     answerButton4.innerHTML = question.answers[3].text;
 }
 
+//This section is dedicated to the functions that go off when you click an answer option
+
 function selectAnswer0(){
     if(shuffledQuestions[currentQuestionIndex-1].answers[0].correct == true){
         correctAnswers++
@@ -56,6 +100,8 @@ function selectAnswer0(){
         showQuestion(correct[0])
         showAnswer(correct[0])
     }else{
+        timeLeft = timeLeft - 5
+        clockElement.innerText = timeLeft
         showQuestion(incorrect[0])
         showAnswer(incorrect[0])
     }
@@ -68,7 +114,10 @@ function selectAnswer1(){
         shuffledQuestions[currentQuestionIndex-1].answers[1].correct = false
         showQuestion(correct[0])
         showAnswer(correct[0])
+
     }else{
+        timeLeft = timeLeft - 5
+        clockElement.innerText = timeLeft
         showQuestion(incorrect[0])
         showAnswer(incorrect[0])
     }
@@ -81,6 +130,8 @@ function selectAnswer2(){
         showQuestion(correct[0])
         showAnswer(correct[0])
     }else{
+        timeLeft = timeLeft - 5
+        clockElement.innerText = timeLeft
         showQuestion(incorrect[0])
         showAnswer(incorrect[0])
     }
@@ -93,11 +144,15 @@ function selectAnswer3(){
         showQuestion(correct[0])
         showAnswer(correct[0])
     }else{
+        timeLeft = timeLeft - 5
+        clockElement.innerText = timeLeft
         showQuestion(incorrect[0])
         showAnswer(incorrect[0])
     }
     console.log('YOUVE GOTTEN ' + correctAnswers + ' RIGHT!');
 }
+
+//Added correct and incorrect question states to allow one to know if they got a question right or wrong
 
 const correct = [
     {
@@ -122,6 +177,8 @@ const incorrect = [
         ]
     }
 ]
+
+//Im treating the questions and answers as objects.
 
 const questions = [
     {
@@ -216,3 +273,5 @@ const questions = [
         ]
     }
 ]
+
+setInterval(tickDown, 1000);
