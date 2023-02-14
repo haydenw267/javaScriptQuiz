@@ -182,94 +182,94 @@ const incorrect = [
 
 const questions = [
     {
-        question: 'What is 2 + 2?',
+        question: 'Which of these is a data type in Javascript?',
         answers: [
-            {text: '4', correct: true},
-            {text: '22', correct: false},
-            {text: '5', correct: false},
-            {text: '1', correct: false}
+            {text: 'String', correct: true},
+            {text: 'Web', correct: false},
+            {text: 'Net', correct: false},
+            {text: 'Homunculus', correct: false}
         ]
 
     },
     {
-        question: 'You come across a band of goblins, what do?',
+        question: 'What is the use of the isNaN function?',
         answers: [
-            {text: 'Befriend them and teach them the value of life', correct: true},
-            {text: 'Ignore them, they are just goblins', correct: false},
-            {text: '[Insert YouTube Friendly Way of Saying "Kill Them"]', correct: false},
-            {text: 'Play Rock Paper Scissors with Them, betting your life savings on the result', correct: false}
+            {text: 'It returns true if the argument is not a number; otherwise, it is false', correct: true},
+            {text: 'isNaN do what now?', correct: false},
+            {text: 'It returns false if the argument is not a number; otherwise, it is true', correct: false},
+            {text: 'It solves world hunger, Im really unsure why we havent run it yet', correct: false}
         ]
     },
     {
-        question: 'When was I born?',
+        question: 'Who developed JavaScript?',
         answers: [
-            {text: '04-04-2002', correct: false},
-            {text: 'April 4th, 2002', correct: false},
-            {text: '04/04/2002', correct: true},
-            {text: '04-04-2002 (British Edition)', correct: false}
+            {text: 'Netscape', correct: true},
+            {text: 'Skitscape', correct: false},
+            {text: 'Landscape... on the net', correct: false},
+            {text: 'epacsteN', correct: false}
         ]
     },
     {
-        question: 'Who made this Quiz?',
+        question: 'What does "3 >= 2" output?',
         answers: [
-            {text: 'Hayden', correct: true},
-            {text: 'Not Hayden', correct: false},
-            {text: 'Not Hayden MK.2', correct: false},
-            {text: 'Not Hayden MK.3', correct: false}
+            {text: 'true', correct: true},
+            {text: 'not true', correct: false},
+            {text: 'false', correct: false},
+            {text: 'correct', correct: false}
         ]
     },
     {
-        question: 'Do you remember?',
+        question: 'How many functions are there?',
         answers: [
-            {text: 'The 21st night of September.', correct: false},
-            {text: 'No.', correct: false},
-            {text: 'Wake Up', correct: false},
-            {text: 'Im just trying to grade your quiz dude', correct: true}
+            {text: 'A lot, like at least 4', correct: false},
+            {text: 'EXCATLY 312', correct: false},
+            {text: '24', correct: false},
+            {text: 'You can make your own, so technically infinite', correct: true}
         ]
     },
     {
-        question: 'You were the chosen one!',
+        question: 'Which data type would "megamind" fall into?',
         answers: [
-            {text: 'You were supposed to destroy the Sith!', correct: false},
-            {text: 'I make my own destiny.', correct: false},
-            {text: 'Hayden seriously.', correct: true},
-            {text: 'How did you come up with these', correct: false}
+            {text: 'Not a string', correct: false},
+            {text: 'Number (really?)', correct: false},
+            {text: 'String', correct: true},
+            {text: 'Villain (kinda)', correct: false}
         ]
     },
     {
-        question: 'This is our last attempt to reach you. Youve been asleep for years.',
+        question: 'How do you create a function?',
         answers: [
-            {text: 'waKE uP', correct: false},
-            {text: 'WAke Up', correct: false},
-            {text: 'WAKE up', correct: true},
-            {text: 'wake UP', correct: false}
+            {text: 'Yell at your computer', correct: false},
+            {text: 'function() []', correct: false},
+            {text: 'function "name"(){} ', correct: true},
+            {text: 'yes', correct: false}
         ]
     },
     {
-        question: 'Can I have your credit card information?',
+        question: 'What is the current industry standard syntax for JavaScript?',
         answers: [
-            {text: 'No.', correct: false},
-            {text: 'No pt.2', correct: false},
-            {text: 'Okay fine you lil rascal you', correct: true},
-            {text: 'No but in a funny accent', correct: false}
+            {text: 'ES4', correct: false},
+            {text: 'ES5', correct: false},
+            {text: 'ES6', correct: true},
+            {text: 'ES3', correct: false}
         ]
     },
     {
-        question: 'How much money is in my wallet?',
+        question: 'Is JavaScript really cool?',
         answers: [
-            {text: '$2', correct: false},
-            {text: '$3', correct: false},
-            {text: 'No dollars', correct: true},
-            {text: 'Please help Im poor', correct: false}
+            {text: 'no', correct: false},
+            {text: 'also no', correct: false},
+            {text: 'yes', correct: true},
+            {text: 'no but im twisting my mustache', correct: false}
         ]
     },
     {
-        question: 'When can I come over?',
+        question: 'JavaScript wasnt always called that. What other name has it had?',
         answers: [
-            {text: 'Tonight', correct: false},
-            {text: 'Tomorrow Night', correct: false},
-            {text: 'Never', correct: true},
-            {text: 'Last Night', correct: false}
+            {text: 'Florida', correct: false},
+            {text: 'Janka', correct: false},
+            {text: 'Mocha', correct: true},
+            {text: 'A McDonalds #9', correct: false}
         ]
     }
 ]
