@@ -68,3 +68,21 @@ body{
 .hide{
     display: none;
 }
+
+.clock{
+    display: flex;
+    justify-content: right;
+    align-items: right;
+}
+
+.finalScore{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.input{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
